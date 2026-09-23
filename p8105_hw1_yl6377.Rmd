@@ -1,0 +1,31 @@
+---
+title: "p8105_hw1_yl6377"
+output: html_document
+date: "2026-09-22"
+---
+
+## Load the penguins datasets
+```{r}
+data("penguins", package = "palmerpenguins")
+library(ggplot2)
+```
+
+## A short description of the penguins dataset
+
+
+The dataset contains data on penguins from three species: 
+`r unique(penguins$species)`. The dataset includes variables such as 
+`r names(penguins)`. It has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
+
+
+```{r}
+library(palmerpenguins)
+library(ggplot2)
+
+ggplot(penguins, aes(x = bill_length_mm,
+                     y = flipper_length_mm,
+                     color = species)) +
+  geom_point()
+
+ggsave("penguins_scatterplot.png")
+```
